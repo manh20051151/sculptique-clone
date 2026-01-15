@@ -15,7 +15,7 @@ function changeImage(thumb, imageSrc) {
 // Bundle Selection
 function selectBundle(element) {
   // Remove selected class from all bundles
-  document.querySelectorAll('.bundle-option').forEach(opt => opt.classList.remove('selected'));
+  document.querySelectorAll('.product-selector_perk_line').forEach(opt => opt.classList.remove('selected'));
   
   // Add selected class to clicked bundle
   element.classList.add('selected');
