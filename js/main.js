@@ -6,7 +6,7 @@
 function changeImage(thumb, imageSrc) {
   // Update main image
   document.getElementById('main-image').src = imageSrc;
-  
+
   // Update active thumbnail
   document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
   thumb.classList.add('active');
@@ -14,24 +14,40 @@ function changeImage(thumb, imageSrc) {
 
 // Bundle Selection
 function selectBundle(element) {
-  // Remove selected class from all bundles
+  // Remove selected class from all bundles (both container and option types)
+  document.querySelectorAll('.bundle-option-container').forEach(opt => opt.classList.remove('selected'));
+  document.querySelectorAll('.bundle-option').forEach(opt => opt.classList.remove('selected'));
   document.querySelectorAll('.product-selector_perk_line').forEach(opt => opt.classList.remove('selected'));
-  
-  // Add selected class to clicked bundle
-  element.classList.add('selected');
-  
+
+  // Check if clicked element is a container or a label
+  if (element.classList.contains('bundle-option-container')) {
+    // Add selected class to the container
+    element.classList.add('selected');
+    // Add selected class to ALL perk_lines inside the container
+    const perkLines = element.querySelectorAll('.product-selector_perk_line');
+    perkLines.forEach(perkLine => {
+      perkLine.classList.add('selected');
+    });
+  } else {
+    // It's a label (bundle-option)
+    element.classList.add('selected');
+  }
+
   // Check the radio button
-  element.querySelector('input[type="radio"]').checked = true;
+  const radio = element.querySelector('input[type="radio"]');
+  if (radio) {
+    radio.checked = true;
+  }
 }
 
 // FAQ Toggle
 function toggleFaq(element) {
   const faqItem = element.parentElement;
   const isOpen = faqItem.classList.contains('open');
-  
+
   // Close all FAQ items
   document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
-  
+
   // Toggle current item
   if (!isOpen) {
     faqItem.classList.add('open');
@@ -42,14 +58,14 @@ function toggleFaq(element) {
 function toggleAccordion(element) {
   const accordionItem = element.parentElement;
   const isOpen = accordionItem.classList.contains('open');
-  
+
   // Toggle current item
   accordionItem.classList.toggle('open');
 }
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
@@ -62,14 +78,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Add to Cart Button Animation
-document.querySelector('.add-to-cart-btn')?.addEventListener('click', function() {
+document.querySelector('.add-to-cart-btn')?.addEventListener('click', function () {
   this.textContent = 'ADDING...';
   this.style.opacity = '0.7';
-  
+
   setTimeout(() => {
     this.textContent = 'ADDED TO CART ✓';
     this.style.backgroundColor = '#00B67A';
-    
+
     setTimeout(() => {
       this.textContent = 'ADD TO CART';
       this.style.backgroundColor = '';
@@ -119,7 +135,7 @@ document.head.appendChild(style);
 function animateCounter(element, target, duration = 2000) {
   let start = 0;
   const increment = target / (duration / 16);
-  
+
   const timer = setInterval(() => {
     start += increment;
     if (start >= target) {
@@ -142,7 +158,7 @@ if (counterElement) {
       }
     });
   }, { threshold: 0.5 });
-  
+
   counterObserver.observe(counterElement);
 }
 
