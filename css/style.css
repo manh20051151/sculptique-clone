@@ -2723,4 +2723,43 @@ img.Desktop_only.product_bf-note-image {
                 font-style: normal;
                 font-display: swap;
                 src: url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.46b40419aaa69bf77077c3108d75dad5a0318d4b.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.97753898e63cd7e164ad614681eba2c7fe577190.woff") format("woff");
-            }            
+            }
+
+/* ===================================
+   AS SEEN IN ANIMATION
+   =================================== */
+.as-seen-in .auto_scrolling_logos {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+.as-seen-in .logos_wrap {
+    display: inline-flex;
+    align-items: center;
+    animation: marquee 40s linear infinite;
+    /* ensure width allows content to flow */
+    width: max-content; 
+}
+
+.as-seen-in .press_logo {
+    margin: 0 30px; /* Adjust spacing as needed */
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move left by 50% of the width, assuming content is duplicated to allow seamless loop */
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause on hover optional */
+.as-seen-in .auto_scrolling_logos:hover .logos_wrap {
+    animation-play-state: paused;
+}
+            
