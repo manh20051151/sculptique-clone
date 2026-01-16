@@ -203,7 +203,7 @@ body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
-  color: var(--color-gray-900);
+  /* color: var(--color-gray-900); */
   /* background-color: var(--color-cream); */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -275,7 +275,7 @@ img {
 
 /* Section */
 .section {
-  padding: var(--section-padding) 0;
+  /* padding: var(--section-padding) 0; */
 }
 
 .section-sm {
@@ -1490,19 +1490,23 @@ img.Desktop_only.product_bf-note-image {
    PROBLEM SECTION
    =================================== */
 .problem-section {
-  padding: 80px 0;
+  padding-top: 56px;
 }
 
 .section-heading {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 48px;
+    text-align: center;
+    max-width: 800px;
+    max-width: 800px;
+    margin: auto;
 }
 
 .section-heading h2 {
-  font-size: 36px;
-  line-height: 1.3;
-  margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 1.3em;
+    margin: 16px 0;
+    font-weight: 400;
+    font-family: Lora;
+    margin-bottom: 28px;
 }
 
 .section-heading h2 .highlight {
@@ -1510,8 +1514,10 @@ img.Desktop_only.product_bf-note-image {
 }
 
 .section-heading p {
-  font-size: 18px;
-  color: var(--color-gray-600);
+      font-family: Nunito;
+      font-size: 18px;
+    margin: 16px 0;
+    line-height: 1.3em;
 }
 
 .symptoms-grid {
@@ -1543,6 +1549,47 @@ img.Desktop_only.product_bf-note-image {
   line-height: 1.5;
   color: var(--color-gray-700);
 }
+
+.product_why-bloating-grid {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+.product_why-bloating-grid>div {
+    width: 100%;
+}
+.product_why-bloating-cell {
+    border-radius: 6px;
+    overflow: hidden;
+}
+.product_why-bloating-cell div img, .product_why-bloat-cell-inn {
+    min-height: 150px;
+}
+.product_why-bloating-grid img {
+    width: 100%;
+}
+.product_why-bloat-cell-inn {
+    padding: 16px;
+    text-align: center;
+    background: #f7f7f7;
+}
+.product_why-bloat-cell-inn p {
+    margin: 0;
+    line-height: 1.3em;
+    font-size: 16px;
+    font-family: Nunito;
+}
+
+.product_why-note-img img {
+    width: 100%;
+    display: block;
+}
+.product_why-note-img {
+    width: 100%;
+    max-width: 920px;
+    margin: auto;
+}
+
 
 /* Callout Box */
 .callout-box {
@@ -1580,8 +1627,15 @@ img.Desktop_only.product_bf-note-image {
    CONNECTION TABLE
    =================================== */
 .connection-section {
-  padding: 80px 0;
-  background-color: var(--color-cream);
+  /* padding: 80px 0; */
+  /* background-color: var(--color-cream); */
+}
+
+.product_arrow-img {
+    display: block;
+    width: 100%;
+    max-width: 48px;
+    margin: 24px auto;
 }
 
 .connection-table {
@@ -1645,14 +1699,45 @@ img.Desktop_only.product_bf-note-image {
    HIDDEN DRAINAGE SECTION
    =================================== */
 .drainage-section {
-  padding: 80px 0;
+  /* padding: 80px 0; */
 }
 
+.drainage-content ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+.drainage-content *, .pli_pink-text *, .pli_bottom-text * {
+    font-size: 18px;
+    line-height: 1.3em;
+    margin: 8px 0;
+}
+.drainage-content li {
+    padding-left: 32px;
+    color: #0c7c00;
+    background-image: url(https://trysculptique.com/cdn/shop/files/check-mark_17013456_2_1.png?v=1760702838);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    list-style: none;
+    font-weight: 600;
+    font-family: Nunito;
+}
+
+.pli_bottom-text li, .pli_pink-text li {
+    padding-left: 32px;
+    color: #a60003;
+    background-image: url(https://trysculptique.com/cdn/shop/files/Vector_7.png?v=1760702839);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    list-style: none;
+    font-weight: 600;
+    font-family: Nunito;
+}
 .drainage-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 100px;
   align-items: center;
+  margin-bottom: 56px;
 }
 
 .drainage-content h2 {
@@ -1665,10 +1750,11 @@ img.Desktop_only.product_bf-note-image {
 }
 
 .drainage-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--color-gray-700);
-  margin-bottom: 24px;
+  color: #000;
+  font-family: Nunito;
+      font-size: 18px;
+    line-height: 1.3em;
+    margin: 8px 0;
 }
 
 .drainage-chart {
