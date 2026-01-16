@@ -148,7 +148,7 @@
   --color-gray-100: #F5F5F5;
   
   --color-white: #FFFFFF;
-  
+  --color-foreground: 0, 0, 0;
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -156,6 +156,7 @@
   --font-body-style: normal;
   --font-body-scale: 1.0;
   --font-body-weight: 400;
+  
   /* Spacing */
   --section-padding: 80px;
   --container-max: 1200px;
@@ -215,7 +216,6 @@ body {
   min-height: 100%;
   margin: 0;
   font-size: 1.5rem;
-  letter-spacing: 0.06rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
@@ -936,7 +936,6 @@ span.kaching-bundles__free-gift__text {
     border-radius: 24px;
     cursor: pointer;
     font-size: 14px;
-    letter-spacing: 0.15rem;
 }
 .main_product-nutrition-info span {
     display: flex;
@@ -1158,7 +1157,7 @@ img.Desktop_only.product_bf-note-image {
 
 .product_tab-block {
   border: 1px solid #d2d2d2;
-  border-radius: 12px;
+  border-radius: 32px;
   margin-bottom: 12px;
   padding: 16px;
   cursor: pointer;
@@ -1178,10 +1177,24 @@ img.Desktop_only.product_bf-note-image {
   font-weight: 600;
 }
 
-.product_tab-thumb p {
+.product_tab-thumb p, .product_tab-content p{
   margin: 0;
   color: #000;
   font-family: Nunito;
+    font-size: 16px;
+    line-height: 1.3em;
+}
+.product_tab-content ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+.product_tab-content li {
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .product_tab-thumb span img {
@@ -1206,16 +1219,18 @@ img.Desktop_only.product_bf-note-image {
   opacity: 1;
   padding-top: 16px;
   transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in, padding 0.4s ease;
+  line-height: calc(1 + 0.8 / var(--font-body-scale));
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 .product_tab-block.open .product_tab-thumb span img {
   transform: rotate(45deg);
 }
 
-.product_tab-content ul {
+/* .product_tab-content ul {
   padding-left: 20px;
   margin-bottom: 12px;
-}
+} */
 
 .product_tab-content li {
   margin-bottom: 8px;
@@ -1378,7 +1393,64 @@ img.Desktop_only.product_bf-note-image {
 /* ===================================
    AS SEEN IN SECTION
    =================================== */
-.as-seen-in {
+
+.section_press_logos_outer {
+    position: relative;
+    /* max-width: 1920px; */
+    margin: auto;
+}
+
+.section_press_logos_outer .section_holder {
+    position: relative;
+    max-width: 100vw;
+    margin: auto;
+    line-height: 1;
+    background: #f3eee0!important;
+}
+.section_press_logos_outer .press_logos_wrapper {
+    /* height: 90px; */
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-content: center;
+        display: grid;
+    margin: auto;
+        grid-gap: 20px 70px;
+    align-items: center;
+}
+
+.section_press_logos_outer .title_wrap {
+    font-size: 24px;
+    letter-spacing: 0px;
+    color: #000000;
+    margin: 0;
+    line-height: calc(1 + .3 / max(1, 1.0));
+    font-family: Trirong, serif;
+    font-weight: 400;
+}
+.section_press_logos_outer .auto_scrolling_logos {
+    width: 100%;
+    overflow: hidden;
+    min-width: 1px;
+}
+.section_press_logos_outer .logos_wrap {
+    display: flex;
+    animation: logo_scroll 60s infinite linear;
+    align-items: center;
+    width: fit-content;
+}
+.section_press_logos_outer .logos_wrap img {
+    height: 30px;
+    width: auto;
+    display: block;
+    margin: 0 50px;
+}
+
+
+/* .as-seen-in {
   padding: 40px 0;
   background-color: var(--color-white);
   border-top: 1px solid var(--color-gray-200);
@@ -1412,7 +1484,7 @@ img.Desktop_only.product_bf-note-image {
 .as-seen-in-logos img:hover {
   opacity: 1;
   filter: grayscale(0%);
-}
+} */
 
 /* ===================================
    PROBLEM SECTION
@@ -2613,3 +2685,42 @@ img.Desktop_only.product_bf-note-image {
 
 
 
+            @font-face {
+                font-family: Montserrat;
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+                src: url("//trysculptique.com/cdn/fonts/montserrat/montserrat_n4.81949fa0ac9fd2021e16436151e8eaa539321637.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/montserrat/montserrat_n4.a6c632ca7b62da89c3594789ba828388aac693fe.woff") format("woff");
+            }
+
+            @font-face {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: normal;
+                font-display: swap;
+                src: url("//trysculptique.com/cdn/fonts/montserrat/montserrat_n7.3c434e22befd5c18a6b4afadb1e3d77c128c7939.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/montserrat/montserrat_n7.5d9fa6e2cae713c8fb539a9876489d86207fe957.woff") format("woff");
+            }
+
+            @font-face {
+                font-family: Montserrat;
+                font-weight: 400;
+                font-style: italic;
+                font-display: swap;
+                src: url("//trysculptique.com/cdn/fonts/montserrat/montserrat_i4.5a4ea298b4789e064f62a29aafc18d41f09ae59b.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/montserrat/montserrat_i4.072b5869c5e0ed5b9d2021e4c2af132e16681ad2.woff") format("woff");
+            }
+
+            @font-face {
+                font-family: Montserrat;
+                font-weight: 700;
+                font-style: italic;
+                font-display: swap;
+                src: url("//trysculptique.com/cdn/fonts/montserrat/montserrat_i7.a0d4a463df4f146567d871890ffb3c80408e7732.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/montserrat/montserrat_i7.f6ec9f2a0681acc6f8152c40921d2a4d2e1a2c78.woff") format("woff");
+            }
+
+            @font-face {
+                font-family: Trirong;
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+                src: url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.46b40419aaa69bf77077c3108d75dad5a0318d4b.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.97753898e63cd7e164ad614681eba2c7fe577190.woff") format("woff");
+            }            
