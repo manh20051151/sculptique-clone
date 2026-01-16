@@ -56,11 +56,13 @@ function toggleFaq(element) {
 
 // Accordion Toggle (for product info accordions)
 function toggleAccordion(element) {
-  const accordionItem = element.parentElement;
-  const isOpen = accordionItem.classList.contains('open');
-
-  // Toggle current item
-  accordionItem.classList.toggle('open');
+  // If element is the block itself (container), toggle it directly
+  if (element.classList.contains('product_tab-block')) {
+    element.classList.toggle('open');
+  } else {
+    // Legacy support: if clicked on thumb, get parent
+    element.closest('.product_tab-block')?.classList.toggle('open');
+  }
 }
 
 // Smooth scroll for anchor links

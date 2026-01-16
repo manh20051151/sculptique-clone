@@ -1150,7 +1150,76 @@ img.Desktop_only.product_bf-note-image {
 .testimonial-image{
   width: 71.47px;
 }
+/* Product Info Tabs */
+.product_tab-block_out {
+  margin: 24px 0 0 0;
+  font-family: var(--font-body-family, 'Nunito', sans-serif);
+}
 
+.product_tab-block {
+  border: 1px solid #d2d2d2;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.product_tab-block.open {
+  border-color: #039869;
+}
+
+.product_tab-thumb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.product_tab-thumb p {
+  margin: 0;
+  color: #000;
+  font-family: Nunito;
+}
+
+.product_tab-thumb span img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.product_tab-content {
+  max-height: 0;
+  padding-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease-out, padding 0.4s ease;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.product_tab-block.open .product_tab-content {
+  max-height: 1000px;
+  opacity: 1;
+  padding-top: 16px;
+  transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in, padding 0.4s ease;
+}
+
+.product_tab-block.open .product_tab-thumb span img {
+  transform: rotate(45deg);
+}
+
+.product_tab-content ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.product_tab-content li {
+  margin-bottom: 8px;
+}
 
 /* ===================================
    TESTIMONIAL SECTION
@@ -2541,4 +2610,6 @@ img.Desktop_only.product_bf-note-image {
   src: url(https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+
 
