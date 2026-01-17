@@ -248,9 +248,9 @@ a {
   transition: color var(--transition-fast);
 }
 
-a:hover {
+/* a:hover {
   color: var(--color-primary-dark);
-}
+} */
 
 img {
   max-width: 100%;
@@ -3457,4 +3457,197 @@ img.jdgm-verified-badge {
 .product_lymph-ingr-thumb img[src*="arrow"] {
     transition: transform 0.3s ease;
 }
-            
+
+/* ===================================
+   PRODUCT VIDEO CAROUSEL
+   =================================== */
+
+.product_primary-btn:hover {
+  background-color: #505050;
+  box-shadow: var(--shadow-lg);
+}
+.product_carousel-outer {
+    position: relative;
+    padding: 0 50px;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.product_ugc-container {
+    margin: 0 -10px;
+}
+
+.product_ugc-container .slick-slide {
+    margin: 0 8px;
+}
+
+.product_ugc-video {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #000;
+}
+
+.product_ugc-video video {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 9/16;
+    display: block;
+}
+
+.product_ugc-play {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.product_ugc-video:hover .product_ugc-play {
+    opacity: 0.8;
+}
+
+/* Carousel Navigation - Bottom Right Position */
+.product_ugc-carousel-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: -10px;
+    width: 100%;
+    position: relative;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.product_carousel-prev,
+.product_carousel-next {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    pointer-events: auto;
+}
+
+.product_carousel-prev:hover,
+.product_carousel-next:hover {
+    opacity: 0.7;
+}
+
+.product_carousel-prev img,
+.product_carousel-next img {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.product_carousel-prev img.left_arrow {
+    transform: none;
+}
+
+.product_carousel-next img.right_arrow {
+    transform: rotate(180deg);
+}
+
+/* Slick Dots Styling - Continuous Bar Style */
+.product_carousel-outer .slick-dots {
+    position: absolute;
+    bottom: -47px;
+    left: 0px;
+    right: 189px;
+    display: flex !important;
+    width: auto;
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+    gap: 0;
+    z-index: 100;
+}
+.stories-section{
+  background: #f3eee0;
+  padding: 56px 0;
+  text-align: center;
+}
+.Product-ugc-stars{
+      max-width: 300px;
+    margin: auto auto 16px;
+    display: block;
+}
+
+.product_carousel-outer .slick-dots li {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+.product_carousel-outer .slick-dots li button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    height: 4px;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.product_carousel-outer .slick-dots li button:before {
+    display: none !important;
+}
+
+.product_carousel-outer .slick-dots li.slick-active button {
+    background: #039869 !important;
+    opacity: 1;
+}
+
+/* Hide default slick arrows */
+.product_carousel-outer .slick-prev,
+.product_carousel-outer .slick-next {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product_carousel-outer {
+        padding: 0 40px;
+    }
+    
+    .product_carousel-prev img,
+    .product_carousel-next img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .product_ugc-play {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product_carousel-outer {
+        padding: 0 30px;
+    }
+}
