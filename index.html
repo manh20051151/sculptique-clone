@@ -2107,16 +2107,79 @@
     </div>
   </footer>
 
+  <!-- Nutrition Popup -->
+  <div class="nutrition_popup-outer">
+    <div class="nutrition_popup-inner">
+      <img loading="lazy" class="nutrition_popup-close" src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Button_To_Expand.png?v=1752069152" alt="Close">
+      
+      <h2 class="main_product-title centered">Nutritional Information</h2>
+      
+      <img class="Desktop_only nutrition_image" src="//trysculptique.com/cdn/shop/files/ingredients-min.png?v=1758713223" alt="Supplement Facts">
+      <img class="Mobile_only nutrition_image" src="//trysculptique.com/cdn/shop/files/ingredients-min.png?v=1758713223" alt="Supplement Facts">
+
+      <div class="main_product-btn" onclick="window.location.href='https://pay.trysculptique.com/lymphatic/checkout'">
+        Try Lymphatic Drainage Risk-Free
+      </div>
+
+      <div class="main_product-points">
+        <div class="main_product-point-line">
+          <img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285">
+          <p>Made & produced in the USA</p>
+        </div>
+        <div class="main_product-point-line">
+          <img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285">
+          <p>100% Natural Ingredients</p>
+        </div>
+        <div class="main_product-point-line">
+          <img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285">
+          <p>60-Day Money-Back Guarantee</p>
+        </div>
+        <div class="main_product-point-line">
+          <img src="https://cdn.shopify.com/s/files/1/0917/5649/5191/files/Mark_Icon_ce1ad4c9-5ec0-4162-969e-b565980ab82b.png?v=1752127285">
+          <p>Free Shipping</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <!-- Slick Slider JS -->
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   
   <script src="js/main.js"></script>
   <script src="js/accordion.js"></script>
   
   <!-- Carousel Initialization -->
   <script>
+    function toggle() {
+      var blur = document.getElementById('blur');
+      blur.classList.toggle('active');
+      var popup = document.getElementById('popup');
+      popup.classList.toggle('active');
+    }
+
+    function switchVideo(videoSrc) {
+      document.querySelector('.popup video source').src = videoSrc;
+      document.querySelector('.popup video').load();
+      toggle();
+    }
+    
+    // Frontrow Sticker Logic
+    function toggleFrontrow() {
+      const sticker = document.getElementById('frontrow-sticker');
+      sticker.classList.toggle('minimized');
+    }
+    
+    function scrollToTestimonials(e) {
+      e.preventDefault();
+      document.querySelector('.testimonials-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function openFrontrowModal() {
+      console.log('Open Frontrow Modal');
+    }
+
     $(document).ready(function(){
       // Initialize Slick Slider
       $('.product_ugc-container').slick({
@@ -2127,6 +2190,7 @@
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: false,
+        variableWidth: true,
         responsive: [
           {
             breakpoint: 1024,
@@ -2203,6 +2267,21 @@
       // Close frontrow-sticker when clicking close button
       $('.close-button').click(function(){
         $('#frontrow-sticker').hide();
+      });
+
+      // Nutrition Popup Logic
+      $('.main_product-nutrition-info').click(function(){
+        $('.nutrition_popup-outer').css('display', 'flex');
+      });
+
+      $('.nutrition_popup-close').click(function(){
+        $('.nutrition_popup-outer').hide();
+      });
+
+      $('.nutrition_popup-outer').click(function(e){
+        if(e.target === this) {
+          $(this).hide();
+        }
       });
     });
   </script>
