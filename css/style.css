@@ -2032,6 +2032,7 @@ img.Desktop_only.product_bf-note-image {
     font-weight: 600;
     margin: 0;
     line-height: 1.3em;
+    font-family: Trirong, serif;
 }
 .product_lymph-ingr-thumb img {
     max-width: 24px;
@@ -2051,7 +2052,9 @@ img.Desktop_only.product_bf-note-image {
 }
 
 .ingredients-section {
-  padding: 80px 0;
+  padding: 56px 0;
+  background: #f3eee0;
+  margin-top: 35px;
 }
 
 .ingredients-intro {
@@ -2061,9 +2064,12 @@ img.Desktop_only.product_bf-note-image {
 }
 
 .ingredients-intro h2 {
-  font-size: 36px;
-  line-height: 1.3;
-  margin-bottom: 16px;
+
+      font-size: 32px;
+    line-height: 1.3em;
+    margin: 16px 0;
+    font-weight: 400;
+    font-family: Lora;
 }
 
 .ingredients-intro h2 .highlight {
@@ -2071,8 +2077,18 @@ img.Desktop_only.product_bf-note-image {
 }
 
 .ingredients-intro p {
-  font-size: 16px;
-  color: var(--color-gray-600);
+    font-size: 18px;
+    /* margin: 16px 0; */
+    line-height: 1.3em;
+    font-family: Nunito;
+    letter-spacing: 0.06rem;
+}
+.product_lymph-ingr-table-small {
+    max-width: 580px;
+    margin: 40px auto auto;
+}
+.product_judge-outer.product_lymphg-ingr-outer img {
+    width: 100%;
 }
 
 .ingredients-grid {
@@ -3027,5 +3043,69 @@ img.Desktop_only.product_bf-note-image {
 /* Pause on hover optional */
 .as-seen-in .auto_scrolling_logos:hover .logos_wrap {
     animation-play-state: paused;
+}
+
+/* ===================================
+   INGREDIENT ACCORDION
+   =================================== */
+/* Minimal styles for Text Accordion functionality */
+.product_tab-content {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+    
+    /* Keep other styles */
+    font-size: 16px;
+    color: #000;
+    line-height: 1.5;
+}
+
+.product_tab-block.open .product_tab-content {
+    /* display: block !important; removed */
+    opacity: 1;
+    /* max-height and padding handled via JS or below if fixed */
+}
+
+/* Rotate arrow for open state */
+.product_tab-block.open .product_tab-thumb img {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Existing Image Accordion Styles */
+.product_lymph-ingr-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin 0.3s ease;
+}
+
+.product-lymph-ingredient.active .product_lymph-ingr-content {
+    /* max-height will be set by JS */
+    opacity: 1;
+}
+
+.product-lymph-ingredient {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.product-lymph-ingredient.active {
+    background-color: #f9f9f9;
+}
+
+/* Rotate arrow when active */
+.product-lymph-ingredient.active .product_lymph-ingr-thumb img[src*="arrow"] {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.product_lymph-ingr-thumb img[src*="arrow"] {
+    transition: transform 0.3s ease;
 }
             

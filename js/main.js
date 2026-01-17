@@ -56,12 +56,29 @@ function toggleFaq(element) {
 
 // Accordion Toggle (for product info accordions)
 function toggleAccordion(element) {
-  // If element is the block itself (container), toggle it directly
-  if (element.classList.contains('product_tab-block')) {
-    element.classList.toggle('open');
-  } else {
-    // Legacy support: if clicked on thumb, get parent
-    element.closest('.product_tab-block')?.classList.toggle('open');
+  let target = element.classList.contains('product_tab-block') ? element : element.closest('.product_tab-block');
+
+  if (target) {
+    target.classList.toggle('open');
+
+    // Smooth Animation Logic
+    const content = target.querySelector('.product_tab-content');
+    if (content) {
+      if (target.classList.contains('open')) {
+
+        content.style.paddingTop = "16px";
+        content.style.paddingBottom = "8px";
+
+        content.style.maxHeight = (content.scrollHeight + 50) + "px";
+        content.style.opacity = "1";
+      } else {
+        // Collapse
+        content.style.maxHeight = "0";
+        content.style.paddingTop = "0";
+        content.style.paddingBottom = "0";
+        content.style.opacity = "0";
+      }
+    }
   }
 }
 
