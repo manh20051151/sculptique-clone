@@ -3578,7 +3578,7 @@ img.jdgm-verified-badge {
 }
 .product_carousel-outer {
     position: relative;
-    padding: 0 50px;
+    padding: 0px 14px;
     padding-bottom: 40px;
     margin-top: 20px;
     z-index: 10;
@@ -3598,6 +3598,7 @@ img.jdgm-verified-badge {
     overflow: hidden;
     cursor: pointer;
     background: #000;
+    width: 294px !important;
 }
 
 .product_ugc-video video {
