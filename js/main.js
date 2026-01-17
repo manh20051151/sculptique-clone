@@ -187,3 +187,199 @@ document.querySelectorAll('.stars, .review-stars').forEach(star => {
 });
 
 console.log('Sculptique Clone loaded successfully!');
+
+/* Moved from index.html */
+function toggle() {
+  var blur = document.getElementById('blur');
+  blur.classList.toggle('active');
+  var popup = document.getElementById('popup');
+  popup.classList.toggle('active');
+}
+
+function switchVideo(videoSrc) {
+  document.querySelector('.popup video source').src = videoSrc;
+  document.querySelector('.popup video').load();
+  toggle();
+}
+
+// Frontrow Sticker Logic
+function toggleFrontrow() {
+  const sticker = document.getElementById('frontrow-sticker');
+  sticker.classList.toggle('minimized');
+}
+
+function scrollToTestimonials(e) {
+  e.preventDefault();
+  document.querySelector('.testimonials-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openFrontrowModal() {
+  console.log('Open Frontrow Modal');
+}
+
+$(document).ready(function () {
+  // Initialize Slick Slider
+  $('.product_ugc-container').slick({
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  // Custom Navigation
+  $('.product_carousel-prev').click(function () {
+    $('.product_ugc-container').slick('slickPrev');
+  });
+  $('.product_carousel-next').click(function () {
+    $('.product_ugc-container').slick('slickNext');
+  });
+
+  // Video Play/Pause
+  $('.product_ugc-video').click(function () {
+    var video = $(this).find('video')[0];
+    var playBtn = $(this).find('.product_ugc-play');
+
+    if (video.paused) {
+      // Pause all other videos
+      $('.product_ugc-video video').each(function () {
+        this.pause();
+        $(this).siblings('.product_ugc-play').show();
+      });
+      video.play();
+      playBtn.hide();
+    } else {
+      video.pause();
+      playBtn.show();
+    }
+  });
+
+  // FAQ Accordion Toggle (Logic này có thể trùng với toggleFaq có sẵn trong main.js, nhưng cứ giữ nguyên để đảm bảo không break logic cũ của user)
+  $('.product_faq-box').click(function () {
+    var $this = $(this);
+    var $content = $this.find('.product_faq-content');
+    var $svg = $this.find('.product_faq-thumb svg');
+
+    // Toggle current box
+    $content.slideToggle(300);
+    $this.toggleClass('open');
+
+    // Rotate arrow
+    if ($this.hasClass('open')) {
+      $svg.css('transform', 'rotate(180deg)');
+    } else {
+      $svg.css('transform', 'rotate(0deg)');
+    }
+  });
+
+  // Initially hide all FAQ content
+  $('.product_faq-content').hide();
+
+  // Close frontrow-sticker when clicking close button
+  $('.close-button').click(function () {
+    $('#frontrow-sticker').hide();
+  });
+
+  // Nutrition Popup Logic
+  $('.main_product-nutrition-info').click(function () {
+    $('.nutrition_popup-outer').css('display', 'flex');
+  });
+
+  $('.nutrition_popup-close').click(function () {
+    $('.nutrition_popup-outer').hide();
+  });
+
+  $('.nutrition_popup-outer').click(function (e) {
+    if (e.target === this) {
+      $(this).hide();
+    }
+  });
+
+  // Star Rating Logic
+  $('.jdgm-star').hover(
+    function () {
+      var value = $(this).data('value');
+      $(this).parent().find('.jdgm-star').each(function () {
+        if ($(this).data('value') <= value) {
+          $(this).addClass('hover');
+        } else {
+          $(this).removeClass('hover');
+        }
+      });
+    },
+    function () {
+      $('.jdgm-star').removeClass('hover');
+    }
+  );
+
+  $('.jdgm-star').click(function () {
+    var value = $(this).data('value');
+    $('#review_rating_value').val(value);
+
+    // Remove all active classes first
+    $('.jdgm-star').removeClass('active');
+
+    // Add active class to clicked star and all previous stats
+    $(this).parent().find('.jdgm-star').each(function () {
+      if ($(this).data('value') <= value) {
+        $(this).addClass('active');
+      }
+    });
+  });
+
+  // Review Form Toggle Logic
+  $('.jdgm-write-rev-link').click(function (e) {
+    e.preventDefault();
+    var $form = $('.jdgm-row-write-review');
+    var $btn = $(this);
+
+    if ($form.is(':visible')) {
+      $form.slideUp();
+      $btn.text('Write a review');
+    } else {
+      $form.slideDown();
+      $btn.text('Cancel review');
+    }
+  });
+
+  // Cancel button inside form
+  $('.jdgm-cancel-rev').click(function (e) {
+    e.preventDefault();
+    $('.jdgm-row-write-review').slideUp();
+    $('.jdgm-write-rev-link').text('Write a review');
+  });
+
+  // Submit button inside form (Prevent default for UI demo)
+  $('.jdgm-submit-rev').click(function (e) {
+    e.preventDefault(); // Remove this if you want actual submission
+    $('.jdgm-row-write-review').slideUp();
+    $('.jdgm-write-rev-link').text('Write a review');
+    alert('Review submitted!'); // Optional feedback
+  });
+});
