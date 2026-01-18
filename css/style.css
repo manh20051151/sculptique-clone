@@ -3442,7 +3442,21 @@ img.jdgm-verified-badge {
             word-wrap: break-word;
             overflow-wrap: break-word; /* Modern standard */
             max-width: 100%;
+            font-size: 16px;
         }
+        .section-heading p {
+        font-size: 16px;
+
+    }
+        .product_why-bloating-cell {
+        display: flex;
+    }
+        .product_why-bloat-cell-inn {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
         
 
         .section_press_logos_outer .logos_wrap img {
@@ -3874,7 +3888,7 @@ img.jdgm-verified-badge {
   }
   
   .section-heading h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .mission-counter {
