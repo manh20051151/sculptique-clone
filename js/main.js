@@ -14,26 +14,20 @@ function changeImage(thumb, imageSrc) {
 
 // Bundle Selection
 function selectBundle(element) {
-  // Remove selected class from all bundles (both container and option types)
   document.querySelectorAll('.bundle-option-container').forEach(opt => opt.classList.remove('selected'));
   document.querySelectorAll('.bundle-option').forEach(opt => opt.classList.remove('selected'));
   document.querySelectorAll('.product-selector_perk_line').forEach(opt => opt.classList.remove('selected'));
 
-  // Check if clicked element is a container or a label
   if (element.classList.contains('bundle-option-container')) {
-    // Add selected class to the container
     element.classList.add('selected');
-    // Add selected class to ALL perk_lines inside the container
     const perkLines = element.querySelectorAll('.product-selector_perk_line');
     perkLines.forEach(perkLine => {
       perkLine.classList.add('selected');
     });
   } else {
-    // It's a label (bundle-option)
     element.classList.add('selected');
   }
 
-  // Check the radio button
   const radio = element.querySelector('input[type="radio"]');
   if (radio) {
     radio.checked = true;
@@ -45,10 +39,8 @@ function toggleFaq(element) {
   const faqItem = element.parentElement;
   const isOpen = faqItem.classList.contains('open');
 
-  // Close all FAQ items
   document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
 
-  // Toggle current item
   if (!isOpen) {
     faqItem.classList.add('open');
   }
@@ -61,7 +53,6 @@ function toggleAccordion(element) {
   if (target) {
     target.classList.toggle('open');
 
-    // Smooth Animation Logic
     const content = target.querySelector('.product_tab-content');
     if (content) {
       if (target.classList.contains('open')) {
@@ -188,7 +179,6 @@ document.querySelectorAll('.stars, .review-stars').forEach(star => {
 
 console.log('Sculptique Clone loaded successfully!');
 
-/* Moved from index.html */
 function toggle() {
   var blur = document.getElementById('blur');
   blur.classList.toggle('active');
@@ -259,9 +249,8 @@ $(document).ready(function () {
 
   $(window).resize(debounce(function () {
     initMobileGallery();
-  }, 250)); // Wait 250ms after resize stops
+  }, 250));
 
-  // Custom Navigation for Mobile Gallery
   $('.main_product-carousel-prev').click(function () {
     $('.main_product-image-carousel').slick('slickPrev');
   });
@@ -331,7 +320,6 @@ $(document).ready(function () {
     }
   });
 
-  // FAQ Accordion Toggle (Logic này có thể trùng với toggleFaq có sẵn trong main.js, nhưng cứ giữ nguyên để đảm bảo không break logic cũ của user)
   $('.product_faq-box').click(function () {
     var $this = $(this);
     var $content = $this.find('.product_faq-content');
@@ -349,15 +337,11 @@ $(document).ready(function () {
     }
   });
 
-  // Initially hide all FAQ content
   $('.product_faq-content').hide();
 
-  // Close frontrow-sticker when clicking close button
   $('.close-button').click(function () {
     $('#frontrow-sticker').hide();
   });
-
-  // Nutrition Popup Logic
   $('.main_product-nutrition-info').click(function () {
     $('.nutrition_popup-outer').css('display', 'flex');
   });
@@ -393,10 +377,8 @@ $(document).ready(function () {
     var value = $(this).data('value');
     $('#review_rating_value').val(value);
 
-    // Remove all active classes first
     $('.jdgm-star').removeClass('active');
 
-    // Add active class to clicked star and all previous stats
     $(this).parent().find('.jdgm-star').each(function () {
       if ($(this).data('value') <= value) {
         $(this).addClass('active');
@@ -426,11 +408,10 @@ $(document).ready(function () {
     $('.jdgm-write-rev-link').text('Write a review');
   });
 
-  // Submit button inside form (Prevent default for UI demo)
   $('.jdgm-submit-rev').click(function (e) {
-    e.preventDefault(); // Remove this if you want actual submission
+    e.preventDefault();
     $('.jdgm-row-write-review').slideUp();
     $('.jdgm-write-rev-link').text('Write a review');
-    alert('Review submitted!'); // Optional feedback
+    alert('Review submitted!');
   });
 });
