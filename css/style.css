@@ -783,6 +783,13 @@ body[data-state="max"] #maximized {
   font-family: Nunito;
   border-radius: 8px;
 }
+.rating-text{
+  color: #000;
+  margin: 0;
+  line-height: 1.3em;
+  font-size: 16px;
+  font-family: Nunito;
+}
 
 .bundle-option {
   position: relative;
@@ -2836,6 +2843,7 @@ img.jdgm-verified-badge {
     font-size: 16px;
     line-height: 1.3em;
         font-family: Nunito;
+        padding-top: 16px;
 }
 .faq-section {
   padding: 56px 0;
@@ -3449,66 +3457,192 @@ img.jdgm-verified-badge {
         .section-heading p {
         font-size: 16px;
 
+          }
+              .product_why-bloating-cell {
+              display: flex;
+          }
+              .product_why-bloat-cell-inn {
+              padding: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+          .product_arrow-img {
+                  display: block;
+                  width: 100%;
+                  max-width: 34px;
+                  margin: 16px auto;
+              }
+              .product_why-note-img-img{
+                padding-top: 20px;
+              }
+      .drainage-section *{
+        font-size: 16px !important;
+      }
+          .product_why-nothing-cell-inn {
+              padding: 16px;
+          }
+              .product_why-nothing-pink {
+              margin-top: 16px;
+              min-height: auto;
+          }
+          .btn-primary-lymphatic {
+              display: block;
+              padding: 16px;
+              text-align: center;
+              font-size: 16px;
+              width: -webkit-fill-available;
+          }
+              .section_press_logos_outer .logos_wrap img {
+                  max-height: 20px;
+                  margin: 0 25px;
+              }
+                  .section_press_logos_outer .title_wrap {
+              font-size: 18px;
+          }
+              .col_pp_atc_usp_line span {
+              padding: 2px 4px;
+          }
+              .col_pp_atc_usp_line p {
+              font-size: 12px;
+          }
+              .guarantee-text p {
+                font-size: 12px;
+              }
+              .guarantee-item2 {
+          gap: 8px;
+          display: flex;
+          align-items: center;
+      }
+      .guarantee-icon img {
+          width: 14px;
+          height: 14px;
+          display: block;
+      }
+      .guarantees svg {
+          width: 14px;
+          height: 14px;
+          display: block;
+      }
+      .guarantees {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 16px;
+          justify-content: center;
+          font-size: 13px;
+          color: var(--color-gray-600);
+      }
+      .guarantee-item1 {
+          display: flex;
+          padding-right: 16px;
+          border-right: 1px solid black;
+          gap: 8px;
+          align-items: center;
+      }
+      .ingredients-section{
+        padding: 32px 0;
+      }
+      .ingredients-intro h2{
+        font-size: 24px;
+      }
+      .ingredients-intro p{
+        font-size: 16px;
+      }
+          /* Correct selector for Lymph Main Image */
+          .product-lymph-ingredient .product_lymph-main-img {
+              width: 100% !important;
+              max-width: 100% !important;
+              height: auto;
+              margin: 0;
+              display: block;
+          }
+              .product_lymph-ingr-thumb>div:nth-child(1) {
+              width: 20%;
+          }
+          .product-lymph-ingredient {
+              padding: 16px;
+          }
+          .reviews-section{
+            padding: 32px 0;
+          }
+          .product-section_title{
+            font-size: 24px;
+          }
+          .product-section_text{
+            font-size: 16px;
+          }
+          .jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) .jdgm-rev-widg__summary {
+              width: auto;
+          }
+          .jdgm-rev-widg__header{
+            display: block;
+          }
+          .jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) .jdgm-write-rev-link, .jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) .jdgm-ask-question-btn {
+              width: 100%;
+              display: block; /* Force block to take full width */
+              box-sizing: border-box; /* Include padding in width */
+              text-align: center;
+          }
+          .jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) :not(.jdgm-revs-tab__content-header)>.jdgm-widget-actions-wrapper{
+            width: 100%; /* Force parent to full width */
+          }
+          .jdgm-rev-widg,
+          .jdgm-widget,
+          .jdgm-rev-widg__header,
+          .jdgm-rev-widg__actions,
+          .jdgm-widget-actions-wrapper,
+          .jdgm-write-rev-link,
+          .jdgm-widget:not(.jdgm-review-widget--small,.jdgm-review-widget--medium) .jdgm-write-rev-link {
+              width: 100% !important;
+              max-width: 100% !important;
+              display: block !important;
+              box-sizing: border-box !important;
+          }
+          
+          .jdgm-write-rev-link {
+              text-align: center;
+              margin-top: 10px;
+          }
+          .jdgm-all-reviews__summary-text--verified{
+            justify-content: center;
+          }
+          .jdgm-btn--border{
+            margin-right: 0;
+          }
+              .product_icons-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
-        .product_why-bloating-cell {
-        display: flex;
+        .product_expert-outer {
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
     }
-        .product_why-bloat-cell-inn {
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        .product_expert-content {
+        padding: 16px;
+        text-align: center;
     }
 
-        
-
-        .section_press_logos_outer .logos_wrap img {
-            max-height: 20px;
-            margin: 0 25px;
-        }
-            .section_press_logos_outer .title_wrap {
-        font-size: 18px;
+    .product_primary-btn {
+        display: block;
+        padding: 16px;
+        text-align: center;
+        font-size: 16px;
     }
-        .col_pp_atc_usp_line span {
-        padding: 2px 4px;
+    .stories-section{
+      padding: 32px 0;
     }
-        .col_pp_atc_usp_line p {
-        font-size: 12px;
-    }
-        .guarantee-text p {
-          font-size: 12px;
-        }
-        .guarantee-item2 {
-    gap: 8px;
-    display: flex;
-    align-items: center;
+    .align_left.btn_container.\32 22 {
+    width: auto;
 }
-.guarantee-icon img {
-    width: 14px;
-    height: 14px;
-    display: block;
+.product_tab-content li{
+  font-size: 15px;
 }
-.guarantees svg {
-    width: 14px;
-    height: 14px;
-    display: block;
+.product-text p{
+text-align: left;
 }
-.guarantees {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 16px;
-    justify-content: center;
-    font-size: 13px;
-    color: var(--color-gray-600);
+.product-text_title{
+  text-align: center !important;
 }
-.guarantee-item1 {
-    display: flex;
-    padding-right: 16px;
-    border-right: 1px solid black;
-    gap: 8px;
-    align-items: center;
-}
- 
         .main_product-nutrition-info {
             white-space: normal !important;
             width: auto !important;
@@ -3523,9 +3657,50 @@ img.jdgm-verified-badge {
             justify-content: center;
             padding: 8px 12px;
         }
-        
-        .main_product-nutrition-info span {
-            display: inline-block;
+        .rating-text{
+          font-size: 12px;
+}
+.product_carousel-outer .slick-dots {
+    position: absolute;
+    bottom: -42px;
+    left: 0px;
+    right: 107px;
+    display: flex !important;
+    width: auto;
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+    gap: 0;
+    z-index: 100;
+}
+        #maximized * { font-size: 10px !important; }
+        #maximized p { font-size: 10px !important; }
+        #maximized button p { font-size: 8px !important; }
+        /* Restrict UGC Video Height on Mobile - Responsive Scaling */
+        .product_ugc-container video, 
+        .product_ugc-video video {
+            width: 100%;
+            height: auto; /* Allow height to scale */
+            aspect-ratio: 4 / 5; /* Maintain consistent vertical ratio */
+            object-fit: cover;
+            border-radius: 8px;
+            max-height: none; /* Remove fixed limit */
+        }
+
+        .faq-section{
+            padding: 32px 0;
+        }
+        .faq-section h2{
+          font-size: 24px;
+        }
+        .product_faq_container{
+            padding: 16px;
+        }
+        .product_faq-box{
+          padding: 20px 0px;
+        }
+        .mission-section{
+            padding: 32px 0;
         }
 
    
@@ -3581,7 +3756,7 @@ img.jdgm-verified-badge {
         .product_why-bloating-cell img {
             width: 100%;
             height: 100%;
-            aspect-ratio: auto;  
+            aspect-ratio: auto; /* Allow image to stretch with card height */
             object-fit: cover;
             display: block;
             border-radius: 0;
@@ -3609,6 +3784,9 @@ img.jdgm-verified-badge {
            padding-left: 10px;
            padding-right: 10px;
         }
+
+
+    
     }
 
     /* Thumbnails */
@@ -3617,6 +3795,22 @@ img.jdgm-verified-badge {
         /* padding: 0 10px; */
     }
     
+    /* Reorder Drainage Grid (Image First) */
+    .drainage-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+    
+    .drainage-grid .drainage-content {
+        order: 2; 
+    }
+    
+    .drainage-grid > div:not(.drainage-content) {
+        order: 1; 
+    }
+
     .main_product-image-carousel_thumbs .slick-slide {
         padding: 0 5px;
         cursor: pointer;
@@ -3761,12 +3955,12 @@ img.jdgm-verified-badge {
 }
 
 /* Helper classes */
-.Desktop_only { display: block; }
-.Mobile_only { display: none; }
+.Desktop_only { display: block !important; }
+.Mobile_only { display: none !important; }
 
 @media (max-width: 768px) {
-    .Desktop_only { display: none; }
-    .Mobile_only { display: block; }
+    .Desktop_only { display: none !important; }
+    .Mobile_only { display: block !important; }
 }
 /* ===================================
    RESPONSIVE STYLES
@@ -3819,7 +4013,8 @@ img.jdgm-verified-badge {
   
   .drainage-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 16px;
+    margin-bottom: 32px;
   }
 }
 
@@ -3926,10 +4121,7 @@ img.jdgm-verified-badge {
     padding: 24px;
   }
   
-  .missing-piece-box {
-    padding: 24px;
-  }
-  
+
   .section-heading h2 {
     font-size: 24px;
   }
@@ -3957,10 +4149,10 @@ img.jdgm-verified-badge {
     grid-template-columns: 1fr;
   }
   
-  .features-grid {
+  /* .features-grid {
     grid-template-columns: 1fr;
   }
-  
+   */
   .gallery-thumbnails {
     gap: 8px;
   }
