@@ -3361,9 +3361,170 @@ img.jdgm-verified-badge {
     }
 }
 
-/* ===================================
-   NUTRITION POPUP
-   =================================== */
+/* Mobile Gallery Styles */
+.Mobile_only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .Desktop_only {
+        display: none !important;
+    }
+    .Mobile_only {
+        display: block;
+    }
+    
+    .main_product-images {
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        /* Fix infinite width issue in Slick Slider/Grid */
+        min-width: 0;
+        overflow: hidden;
+    }
+    
+    /* Main Carousel */
+    /* .main_product-image-carousel .slick-slide img {
+        width: 100%;
+        height: auto;
+        display: block;
+    } */
+    
+    /* Fix typography overflow on small screens */
+    h1, h2, h3, h4, .text-content {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    /* Fix Why Nothing Has Worked columns stacking */
+    .product_why-bloating-grid {
+        display: flex;
+        flex-direction: column; 
+    }
+    
+    .product_why-nothing-cell {
+        width: 100% !important;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Fix UGC Slider overflow */
+    .product_ugc-video {
+        max-width: 100vw; /* Prevent rigid 310px on small screens */
+        width: 100% !important; /* Override potential fixed width */
+    }
+
+    /* Ensure star rating fits */
+    .jdgm-widget.jdgm-widget {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* Responsive Fixes for All Mobile Screens */
+    @media (max-width: 768px) {
+        .container {
+            padding-left: 16px;
+            padding-right: 16px; 
+        }
+
+        .hero-grid > div,
+        .product-info,
+        .main_product-images {
+            min-width: 0; /* Crucial for Grid/Flex child shrinking */
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Responsive Typography */
+        h1, h2, h3, h4, .text-content, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word; /* Modern standard */
+            max-width: 100%;
+        }
+        
+
+
+        /* Responsive Nutritional Info Button */
+        .main_product-nutrition-info {
+            white-space: normal !important;
+            width: auto !important;
+            max-width: 90% !important;
+            min-width: 245px;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            bottom: 32px !important;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+        }
+        
+        .main_product-nutrition-info span {
+            display: inline-block;
+        }
+    }
+
+    /* Ultra-small adjustments (iPhone SE 1st gen, etc) */
+    @media (max-width: 330px) {
+        .container {
+           padding-left: 10px;
+           padding-right: 10px;
+        }
+    }
+
+    /* Thumbnails */
+    .main_product-image-carousel_thumbs {
+        margin-top: 10px;
+        /* padding: 0 10px; */
+    }
+    
+    .main_product-image-carousel_thumbs .slick-slide {
+        padding: 0 5px;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    
+    .main_product-image-carousel_thumbs .slick-slide.slick-current {
+        opacity: 1;
+    }
+    
+    .main_product-image-carousel_thumbs img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #e4e4e4;
+    }
+
+    /* Custom Arrows for Mobile Gallery */
+    .main_product-carousel-prev,
+    .main_product-carousel-next {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .main_product-carousel-prev {
+        left: 10px;
+    }
+    
+    .main_product-carousel-next {
+        right: 10px;
+    }
+    
+    .main_product-carousel-prev img,
+    .main_product-carousel-next img {
+        width: 100%;
+        height: 100%;
+    }
+    
+
+}
 .nutrition_popup-outer {
     position: fixed;
     top: 0;
@@ -3524,11 +3685,41 @@ img.jdgm-verified-badge {
 
 /* Mobile */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   :root {
     --section-padding: 48px;
+    /* Giảm padding container để có thêm không gian */
     --container-padding: 16px;
   }
   
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  .header-main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .header-main img {
+      margin: 0 auto;
+      max-width: 160px; /* Đảm bảo logo không quá to */
+  }
+
+  /* Fix bảng bị tràn */
+  .product_lymph-ingr-table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+  }
+
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.5rem; }
   h3 { font-size: 1.25rem; }
@@ -4009,3 +4200,7 @@ img.jdgm-verified-badge {
                 src: url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.46b40419aaa69bf77077c3108d75dad5a0318d4b.woff2") format("woff2"), url("//trysculptique.com/cdn/fonts/trirong/trirong_n4.97753898e63cd7e164ad614681eba2c7fe577190.woff") format("woff");
             }
 
+/* Fix Chrome 'non-passive' event listener violation */
+.slick-slider, .slick-list, .slick-track {
+    touch-action: pan-y;
+}

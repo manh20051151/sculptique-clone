@@ -218,6 +218,57 @@ function openFrontrowModal() {
 }
 
 $(document).ready(function () {
+  // Main Mobile Product Gallery
+  function initMobileGallery() {
+    if ($(window).width() <= 768) {
+      if (!$('.main_product-image-carousel').hasClass('slick-initialized')) {
+        $('.main_product-image-carousel').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: '.main_product-image-carousel_thumbs'
+        });
+
+        $('.main_product-image-carousel_thumbs').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          asNavFor: '.main_product-image-carousel',
+          dots: false,
+          centerMode: false,
+          focusOnSelect: true,
+          arrows: false
+        });
+      }
+    }
+  }
+
+  // Debounce function to limit resize firing
+  function debounce(func, wait) {
+    var timeout;
+    return function () {
+      var context = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        func.apply(context, args);
+      }, wait);
+    };
+  }
+
+  initMobileGallery();
+
+  $(window).resize(debounce(function () {
+    initMobileGallery();
+  }, 250)); // Wait 250ms after resize stops
+
+  // Custom Navigation for Mobile Gallery
+  $('.main_product-carousel-prev').click(function () {
+    $('.main_product-image-carousel').slick('slickPrev');
+  });
+  $('.main_product-carousel-next').click(function () {
+    $('.main_product-image-carousel').slick('slickNext');
+  });
+
   // Initialize Slick Slider
   $('.product_ugc-container').slick({
     dots: true,
